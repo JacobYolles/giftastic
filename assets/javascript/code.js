@@ -1,7 +1,7 @@
 // CREATING A DOCUMENT READY FUNCTION
 $(document).ready(function() {
     // Creating variables:
-var states = ["Colorado", "Arizona", "Florida", "Utah", "Nebraska", "Texas", "North Dakota", "South Dakota", "Minnesota", "Wisconsin", "New Mexico", "Oregon", "Washington", "California", "Alaska"];
+var states = ["Alaska", "Arizona", "California", "Colorado", "Florida", "Minnesota", "Utah", "Nebraska", "Texas", "North Dakota", "South Dakota", "Wisconsin", "New Mexico", "Oregon", "Washington", ];
 
 
     // Sample Code:
@@ -11,11 +11,11 @@ function makeButtons(){
     $("#buttonsView").empty();
     // THIS FOR LOOP WILL CREATE THE BUTTONS AS WAS MADE IN THE HELPFUL AJAX CODE WITHOUT HAVING THEM HAVE TO BE HARD CODED.
     for (var i = 0; i < states.length; i++){
-        var buttonCreated = $("<button>") 
-		buttonCreated.addClass("state"); 
-		buttonCreated.attr("data-name", states[i]); 
-		buttonCreated.text(states[i]); 
-		$("#buttonsView").append(buttonCreated); 
+        var a = $("<button>") 
+		a.addClass("stateName"); 
+		a.attr("data-name", states[i]); 
+		a.text(states[i]); 
+		$("#buttonsView").append(a); 
     }; // END OF FOR LOOP
 }; // END OF MAKE BUTTONS FUNCTION.
 
@@ -23,11 +23,11 @@ function makeButtons(){
 // HANDLES THE FORM FOR ADDING BUTTONS
 $("#addState").on("click", function(){
 
-	// grabs the user state input
+	// grabs the user's state input
 	var state = $("#state-input").val().trim();
 	// that input is now added to the array
 	states.push(state);
-	// the makeButtons function is called, which makes buttons for all my shows plus the user show
+	// the makeButtons function is called, which makes buttons for all my states plus the users input for any new states.
 	makeButtons();
 	// this line is so users can hit "enter" instead of clicking the submit button
 	return false; 
@@ -38,9 +38,9 @@ $("#addState").on("click", function(){
 
 
 //Instead of using a button on click, create the ajax through a function.
-function displayGifs() {
-        var name = $(this).attr("data-name");
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + name +  "&api_key=iFkKQCnT6dVZjMAxRXbekzVSZZEfG514&limit=10";
+function displayStateGifs() {
+        var state = $(this).attr("data-name");
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + state +  "&api_key=iFkKQCnT6dVZjMAxRXbekzVSZZEfG514&limit=10";
         
           // AJAX CALL:
         $.ajax({
@@ -60,7 +60,7 @@ function displayGifs() {
 					stateGif.addClass("gif");
 					stateGif.attr("data-animate", results[i].images.fixed_height.url);
                 gifDiv.append(stateGif);
-                $("#gifs-appear-here").prepend(gifDiv);
+                $("#gifsView").prepend(gifDiv);
                 } // FOR END
 
             }); // ajax call end.
@@ -79,7 +79,7 @@ function displayGifs() {
     });
     
   
-    $(document).on("click", ".show", displayGifs);
+    $(document).on("click", ".stateName", displayStateGifs);
 
 
 
