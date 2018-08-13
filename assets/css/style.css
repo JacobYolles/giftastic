@@ -7,6 +7,26 @@
 }
 
 #buttonsView {
-    padding: 2px;
+    padding: 10px;
+    display: inline;
+    background: black;
+    
 }
 
+button {
+	background:gold;
+	margin: 5px;
+	font-family: 'Open Sans', sans-serif;
+    color: black;
+    padding: 5px;
+}
+
+body {
+    background-color: lightslategray;
+}
+
+#state-form {
+    position: relative;
+    float: right;
+    bottom: 40px;
+}
