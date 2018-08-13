@@ -1,0 +1,12 @@
+/* Bootstrap and CSS standard can go in here. */
+
+.gifs {
+    display: inline-block;
+   padding: 4px;
+   background: cadetblue;
+}
+
+#buttonsView {
+    padding: 2px;
+}
+
