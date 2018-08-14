@@ -28,9 +28,12 @@ body {
 }
 
 #state-form {
+    display: inline;
     position: relative;
     float: right;
+    right: 190px;
     bottom: 40px;
+    width: 20%
 }
 
 #rating-text {
