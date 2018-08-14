@@ -1,3 +1,4 @@
+
 // CREATING A DOCUMENT READY FUNCTION
 $(document).ready(function() {
     // Creating variables:
@@ -52,6 +53,10 @@ function displayStateGifs() {
                 for (var i = 0; i < results.length; i++) {
                 var gifDiv = $("<div class=gifs>");
                 var stateGif = $("<img>");
+                var p = $("<p id='rating-text'>")
+                    p.text("Rating: " + results[i].rating);
+                var title = $("<p id='title-text'>")
+                    title.text("Title: " + results[i].title)    
                 // IMAGE SOURCE
                     stateGif.attr("src", results[i].images.fixed_height_still.url);
                     stateGif.attr("title", "Rating: " + results[i].rating);
@@ -60,6 +65,8 @@ function displayStateGifs() {
 					stateGif.addClass("gif");
 					stateGif.attr("data-animate", results[i].images.fixed_height.url);
                 gifDiv.append(stateGif);
+                gifDiv.append(p)
+                gifDiv.append(title)
                 $("#gifsView").prepend(gifDiv);
                 } // FOR END
 
