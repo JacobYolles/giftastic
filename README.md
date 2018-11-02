@@ -6,4 +6,6 @@ Each time a new state is searched and the button is clicked that option will per
 
 The gifs will prepend to what has already been shown, pushing down earlier click results towards the bottom of the page and putting new searches above it. Should the user reclick something they are already on however, nothing new will appear. 
 
+Finally as a bonus I have also sourced from the API's database what the specific title for each of the returned gifs are as well as relatively speaking what the database believes that the rating (G-R) is for each of the specific gifs.
+
 I hope you enjoy playing around with this application and find out what Gifs each state, (particularly yours) has to offer!
